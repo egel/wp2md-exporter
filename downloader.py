@@ -7,11 +7,13 @@ import sys
 import copy
 import datetime
 
-# connect
-db = MySQLdb.connect(host="",   # ex: my-site.com
-                     user="",   # ex: root
-                     passwd="", # ex: your root password
-                     db="") # mysql wordpress db ex: wordpress_mysite
+from dbvariables import *
+
+# connect to mysql db hidden in dbvariables.py file
+db = MySQLdb.connect(host=host,     # ex: my-site.com
+                     user=user,     # ex: root
+                     passwd=passwd, # ex: your root password
+                     db=db)         # ex: wordpress_mysite
 
 def to_snake_case(input_str, output_glue_char="_"):
     chars_to_remove = [' ', '-', '?', ':', '&', '%', '!', '_']
@@ -67,7 +69,8 @@ for x in range(0, numrows):
     row = cursor.fetchone()
     # every row number have its equivalent in the data base
     d = str(row[2])
-    _filename = to_snake_case('posts/' + row[5] + "(" + d + ').md')
+    # _filename = to_snake_case('posts/' + row[5] + "(" + d + ').md')
+    _filename = to_snake_case('posts/' + row[5] + '.md')
     _filename = _filename.strip('_')
     with open(_filename, 'w') as file_:
         file_.write(pelican_meta_info(row[5], row[2], row[3], row[7]))

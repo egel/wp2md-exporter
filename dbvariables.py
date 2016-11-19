@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-host=""   # ex: my-site.com
-user=""   # ex: root
-passwd="" # ex: your root password
-db=""     # mysql wordpress db, ex: wordpress_mysite
+host="egel.pl"   # ex: my-site.com
+user="root"   # ex: root
+passwd="ni7ajEb3Au" # ex: your root password
+db="wordpress_theegelblog"     # mysql wordpress db, ex: wordpress_mysite
